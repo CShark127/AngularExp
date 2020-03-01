@@ -53,3 +53,8 @@ mat-card-content {
 .bronze span.mat-badge-content.mat-badge-active {
   background-color: #cd7f32;
 }
+
+span.mat-badge-content.mat-badge-active,
+.mat-badge-content {
+  color: #424242 !important;
+}

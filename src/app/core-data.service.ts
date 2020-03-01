@@ -45,6 +45,17 @@ export class CoreDataService {
     this.gridViewChange.next(!this.gridView);
   }
 
+  statsView = false;
+  statsViewChange: Subject<boolean> = new Subject<boolean>();
+  changeStatsView() {
+    this.statsViewChange.next(!this.statsView);
+  }
+
+  blueHazeCount = this.getRandomInt(15, 55);
+  distance = Math.round(Math.random() * 100) / 100;
+  lotMoves = this.getRandomInt(50, 99);
+  moveRate = this.getRandomInt(10, 25);
+
   lotList = this.createInitialLotList();
   lotListChange: Subject<any> = new Subject<any>();
   unloadCarrier(position) {
@@ -71,9 +82,6 @@ export class CoreDataService {
     };
     this.lotListChange.next(this.lotList);
   }
-
-  distanceView = false;
-  statsView = false;
 
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -152,6 +160,9 @@ export class CoreDataService {
     });
     this.gridViewChange.subscribe(value => {
       this.gridView = value;
+    });
+    this.statsViewChange.subscribe(value => {
+      this.statsView = value;
     });
     this.lotListChange.subscribe(value => {
       this.lotList = value;

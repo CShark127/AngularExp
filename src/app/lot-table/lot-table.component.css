@@ -42,6 +42,7 @@ mat-card {
   background-color: #cd7f32;
 }
 
-.dark-theme span.mat-badge-content.mat-badge-active {
-  color: #424242;
+span.mat-badge-content.mat-badge-active,
+.mat-badge-content {
+  color: #424242 !important;
 }

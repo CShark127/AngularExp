@@ -18,4 +18,9 @@ export class AppComponent {
   gridViewChange = this.coreDateService.gridViewChange.subscribe(
     value => (this.gridView = value)
   );
+
+  statsView = this.coreDateService.statsView;
+  statsViewChange = this.coreDateService.statsViewChange.subscribe(
+    value => (this.statsView = value)
+  );
 }

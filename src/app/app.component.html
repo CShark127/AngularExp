@@ -1,6 +1,7 @@
-<div [class.dark-theme]="darkTheme">
+<div class="main" [class.dark-theme]="darkTheme">
   <app-nav></app-nav>
 
   <app-lot-grid *ngIf="gridView"></app-lot-grid>
   <app-lot-table *ngIf="!gridView"></app-lot-table>
+  <app-stats-bar *ngIf="statsView"></app-stats-bar>
 </div>

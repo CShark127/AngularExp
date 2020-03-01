@@ -21,13 +21,15 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NavComponent } from "./nav/nav.component";
 import { LotTableComponent } from "./lot-table/lot-table.component";
 import { LotGridComponent } from "./lot-grid/lot-grid.component";
+import { StatsBarComponent } from './stats-bar/stats-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     LotTableComponent,
-    LotGridComponent
+    LotGridComponent,
+    StatsBarComponent
   ],
   imports: [
     BrowserModule,

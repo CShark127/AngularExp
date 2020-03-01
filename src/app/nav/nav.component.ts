@@ -31,5 +31,13 @@ export class NavComponent implements OnInit {
     this.coreDataService.changeGridView();
   }
 
+  statsView = this.coreDataService.statsView;
+  statsViewSubscriber = this.coreDataService.statsViewChange.subscribe(
+    value => (this.statsView = value)
+  );
+  changeStatsView() {
+    this.coreDataService.changeStatsView();
+  }
+
   ngOnInit(): void {}
 }
