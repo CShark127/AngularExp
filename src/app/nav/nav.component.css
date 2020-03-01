@@ -1,0 +1,16 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.points-display {
+  display: flex;
+  text-align: center;
+}
+
+.points-display mat-icon {
+  margin-right: 5px;
+}
+
+.points-display .mat-subheading-2 {
+  margin: 0px;
+}

@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="container__item">
+    <h3 class="mat-subheading-2 center">Left Side</h3>
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <ng-container *ngFor="let lot of lotList">
+        <mat-grid-tile *ngIf="lot.position <= 6" (click)="onClick(lot)">
+          <mat-card>
+            <mat-card-content>
+              <h2>
+                <span
+                  *ngIf="gamify; else elseBlock"
+                  class="carrierId"
+                  [matBadge]="lot.points"
+                  matBadgeOverlap="false"
+                  MatBadgePosition="below"
+                  [ngClass]="{
+                    gold: lot.points >= 10,
+                    silver: lot.points >= 6 && lot.points < 10,
+                    bronze: lot.points < 6
+                  }"
+                >
+                  {{ lot.carrier }}</span
+                >
+                <ng-template #elseBlock>
+                  {{ lot.carrier }}
+                </ng-template>
+              </h2>
+              <h3>{{ lot.timeRemaining }}</h3>
+              <ng-container *ngIf="lot.carrier">
+                <span class="destination">
+                  <mat-icon aria-hidden="false" aria-label="Example home icon"
+                    >double_arrow</mat-icon
+                  >
+                  <span class="mat-headline">{{ lot.destination }}</span>
+                </span>
+              </ng-container>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </ng-container>
+    </mat-grid-list>
+  </div>
+  <div class="container__item">
+    <h3 class="mat-subheading-2 center">Right Side</h3>
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <ng-container *ngFor="let lot of lotList">
+        <mat-grid-tile *ngIf="lot.position > 6" (click)="onClick(lot)">
+          <mat-card>
+            <mat-card-content>
+              <h2>
+                <span
+                  *ngIf="gamify; else elseBlock"
+                  class="carrierId"
+                  [matBadge]="lot.points"
+                  matBadgeOverlap="false"
+                  MatBadgePosition="below"
+                  [ngClass]="{
+                    gold: lot.points >= 10,
+                    silver: lot.points >= 6 && lot.points < 10,
+                    bronze: lot.points < 6
+                  }"
+                >
+                  {{ lot.carrier }}</span
+                >
+                <ng-template #elseBlock>
+                  {{ lot.carrier }}
+                </ng-template>
+              </h2>
+              <h3>{{ lot.timeRemaining }}</h3>
+              <ng-container *ngIf="lot.carrier">
+                <span class="destination">
+                  <mat-icon aria-hidden="false" aria-label="Example home icon"
+                    >double_arrow</mat-icon
+                  >
+                  <span class="mat-headline">{{ lot.destination }}</span>
+                </span>
+              </ng-container>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </ng-container>
+    </mat-grid-list>
+  </div>
+</div>
+<pre>{{ result | json }}</pre>

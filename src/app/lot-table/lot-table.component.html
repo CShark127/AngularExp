@@ -1,0 +1,76 @@
+<div class="container">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="carrier">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Carrier ID</th>
+      <td mat-cell *matCellDef="let element">
+        <span
+          *ngIf="gamify; else elseBlock"
+          [matBadge]="element.points"
+          matBadgeOverlap="false"
+          [ngClass]="{
+            gold: element.points >= 10,
+            silver: element.points >= 6 && element.points < 10,
+            bronze: element.points < 6
+          }"
+          ><strong>{{ element.carrier }}</strong></span
+        >
+        <ng-template #elseBlock>
+          <strong>{{ element.carrier }}</strong>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="timeRemaining">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Time Remaining</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.timeRemaining">
+          {{ element.timeRemaining }} Min
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="destination">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Destination</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.carrier">
+          <span class="destination">
+            <mat-icon aria-hidden="false" aria-label="Example home icon"
+              >double_arrow</mat-icon
+            >
+            <span class="mat-headline"></span>{{ element.destination }}
+          </span>
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      (click)="onClick(row)"
+    ></tr>
+  </table>
+
+  <!-- <div class="stats">
+    <mat-grid-list cols="1" rowHeight="2:1">
+      <mat-grid-tile>
+        <mat-card>1</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>2</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>3</mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div> -->
+</div>

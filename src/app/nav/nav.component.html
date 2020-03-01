@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{ cartName }}</span>
+    <span class="example-spacer"></span>
+    <span class="points-display" *ngIf="gamify">
+      <mat-icon>emoji_events</mat-icon>
+      <span class="mat-subheading-2">{{ score }} Points</span>
+    </span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Settings</button>
+    <mat-menu #menu="matMenu">
+      <mat-checkbox
+        class="mat-menu-item"
+        (click)="$event.stopPropagation()"
+        (change)="changeTheme()"
+      >
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >invert_colors</mat-icon
+        >Dark Mode
+      </mat-checkbox>
+      <mat-checkbox
+        class="mat-menu-item"
+        (click)="$event.stopPropagation()"
+        (change)="changeGamify()"
+        ><mat-icon aria-hidden="false" aria-label="Example home icon"
+          >games</mat-icon
+        >Gamify</mat-checkbox
+      >
+      <mat-checkbox
+        class="mat-menu-item"
+        (click)="$event.stopPropagation()"
+        (change)="changeGridView()"
+        ><mat-icon aria-hidden="false" aria-label="Example home icon"
+          >grid_on</mat-icon
+        >Grid View</mat-checkbox
+      >
+      <mat-checkbox class="mat-menu-item" (click)="$event.stopPropagation()"
+        ><mat-icon aria-hidden="false" aria-label="Example home icon"
+          >timeline</mat-icon
+        >Stats</mat-checkbox
+      >
+      <mat-divider></mat-divider>
+      <button class="mat-menu-item">
+        <mat-icon aria-hidden="false" aria-label="Example home icon"
+          >email</mat-icon
+        >Email Supervisor
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
