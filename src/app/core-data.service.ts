@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 
+declare let gtag: Function;
+
 @Injectable({
   providedIn: "root"
 })
@@ -146,6 +148,21 @@ export class CoreDataService {
 
   getLotList() {
     return this.lotList;
+  }
+
+  public eventEmitter(
+    eventName: string,
+    eventCategory: string,
+    eventAction: string,
+    eventLabel: string = null,
+    eventValue: number = null
+  ) {
+    gtag("event", eventName, {
+      eventCategory: eventCategory,
+      eventLabel: eventLabel,
+      eventAction: eventAction,
+      eventValue: eventValue
+    });
   }
 
   constructor() {

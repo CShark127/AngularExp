@@ -11,6 +11,11 @@ export class NavComponent implements OnInit {
 
   cartName = this.coreDataService.getCartName();
   changeTheme() {
+    this.coreDataService.eventEmitter(
+      "change_theme",
+      "change_theme",
+      "change_theme"
+    );
     this.coreDataService.changeTheme();
   }
 
@@ -19,6 +24,7 @@ export class NavComponent implements OnInit {
     value => (this.gamify = value)
   );
   changeGamify() {
+    this.coreDataService.eventEmitter("gamify", "gamify", "gamify");
     this.coreDataService.changeGamify();
   }
 
@@ -28,6 +34,7 @@ export class NavComponent implements OnInit {
   );
 
   changeGridView() {
+    this.coreDataService.eventEmitter("gridView", "gridView", "gridView");
     this.coreDataService.changeGridView();
   }
 
@@ -36,6 +43,7 @@ export class NavComponent implements OnInit {
     value => (this.statsView = value)
   );
   changeStatsView() {
+    this.coreDataService.eventEmitter("statsView", "statsView", "statsView");
     this.coreDataService.changeStatsView();
   }
 
